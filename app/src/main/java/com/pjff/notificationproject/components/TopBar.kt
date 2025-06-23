@@ -1,6 +1,5 @@
 package com.pjff.notificationproject.components
 
-import android.icu.text.CaseMap.Title
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -15,7 +14,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-//Vid 292
+//V-292, paso 1.5
 fun TopBar(
     drawerState: DrawerState,
     title: String

@@ -6,13 +6,16 @@ import android.app.NotificationManager
 import android.os.Build
 import androidx.annotation.RequiresApi
 
+//V-293,Paso 2.0 Notificaciones
 class NotificationApplication: Application() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate() {
         super.onCreate()
-        //Vid 293,Canal de ejecutar las notificaciones
+        /*Canal:Es una especie de contenedor de notificaciones
+        Y se encarga de ejecutar las notificaciones: Tiene 3 cosas: id, name e importancia*/
         val notificationChannel = NotificationChannel(
+            //En id le ponemos cualquier cosa
             "123",
             "notificaciones",
             NotificationManager.IMPORTANCE_HIGH

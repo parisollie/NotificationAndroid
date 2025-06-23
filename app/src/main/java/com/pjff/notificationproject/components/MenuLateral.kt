@@ -13,15 +13,15 @@ import androidx.navigation.NavController
 import com.pjff.notificationproject.navigation.ItemsMenuLateral.*
 import kotlinx.coroutines.launch
 
+//V-291,Paso 1.4
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MenuLateral(
     navController: NavController,
-    //Vid 291
     drawerState: DrawerState,
     content: @Composable () -> Unit
 ) {
-    //en una ecorrutina para que sea mas ligero
+    //En una corrutina para que sea mas ligero
     val scope = rememberCoroutineScope()
     val menuItems = listOf(
         item_1,
@@ -33,6 +33,7 @@ fun MenuLateral(
         drawerState = drawerState,
         drawerContent = {
             ModalDrawerSheet {
+                //Hacemos un Foreach de todas las opciones que tenemos, en este caso 3.
                 menuItems.forEach { item ->
                     NavigationDrawerItem(
                         icon = { Icon(item.icon, contentDescription = "") },
@@ -42,12 +43,14 @@ fun MenuLateral(
                             scope.launch {
                                 drawerState.close()
                             }
-                            //para dirigirnos a la sig ruta
+                            //Para dirigirnos a la sig ruta
                             navController.navigate(item.ruta)
-                        })
+                        }
+                    )
                 }
             }
-        }) {
+        }
+    ) {
         content()
     }
 

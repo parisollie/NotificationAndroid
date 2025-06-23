@@ -67,9 +67,10 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    //Navigatigation
+    // V-289,Bloque 28 Paso 1.0
+    // Navigatigation
     val nav_version = "2.6.0"
     implementation("androidx.navigation:navigation-compose:$nav_version")
-
+    // Notificaciones
     implementation("androidx.work:work-runtime-ktx:2.9.0")
 }

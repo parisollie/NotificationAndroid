@@ -10,11 +10,12 @@ import com.pjff.notificationproject.views.HomeView
 
 @Composable
 fun NavManager() {
-    //Vid 290
+    //V-290, paso 1.1
     val navController = rememberNavController()
 
     NavHost(navController, startDestination = "Home" ){
         composable("Home"){
+            //paso 1.8, le ponemos el navController
             HomeView(navController)
         }
         composable("About"){

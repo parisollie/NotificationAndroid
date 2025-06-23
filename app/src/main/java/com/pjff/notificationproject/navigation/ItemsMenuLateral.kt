@@ -6,14 +6,14 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.ui.graphics.vector.ImageVector
 
-//Vid 290
+//Paso 1.3
 sealed class ItemsMenuLateral (
     val icon: ImageVector,
     val title: String,
     var ruta: String
 
 ){
-    //Ebn version igual se pone data object
+    //Ahora se pone data object
     object item_1 : ItemsMenuLateral(
         Icons.Default.Home,
         "Home",

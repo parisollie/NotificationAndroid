@@ -8,14 +8,15 @@ import androidx.annotation.DrawableRes
 import androidx.core.app.NotificationCompat
 import kotlin.random.Random
 
+//V-294,paso 2.2, configuración de notificaciones
 class NotificationService(private val context: Context) {
 
-    //Vid 294
     private val notificationManager = context.getSystemService(NotificationManager::class.java)
 
     fun showBasicNotification(){
+        // Le ponemos el id que era 123
         val notification = NotificationCompat.Builder(context,"123")
-            //Cuerpo de la notificacion
+            // Cuerpo de la notificacion
             .setContentTitle("Titulo")
             .setContentText("Notificacion básica jeje ")
             .setSmallIcon(R.drawable.noti)
@@ -23,6 +24,7 @@ class NotificationService(private val context: Context) {
             .setAutoCancel(true)
             .build()
         notificationManager.notify(
+            //para que se genera random el id
             Random.nextInt(),
             notification
         )
@@ -47,6 +49,7 @@ class NotificationService(private val context: Context) {
         )
     }
 
+    //Función tipo lista.
     fun showInboxNotification(){
         val notification = NotificationCompat.Builder(context,"123")
             .setContentTitle("Titulo")
@@ -70,7 +73,7 @@ class NotificationService(private val context: Context) {
         )
     }
 
-    //Vid 295
+    //Paso 2.4 notificacion con imagén en la notificación
     fun showImageNotification(){
         val image = context.bitmapFromResource(R.drawable.emoji)
         val notification = NotificationCompat.Builder(context,"123")
@@ -93,7 +96,7 @@ class NotificationService(private val context: Context) {
         )
     }
 
-    //Vuid 295, para la notificacion con la imagén
+    //Vuid 295,paso 2.3 para la notificacion con la imagén
     private fun Context.bitmapFromResource(
         @DrawableRes resId: Int
     ) = BitmapFactory.decodeResource(

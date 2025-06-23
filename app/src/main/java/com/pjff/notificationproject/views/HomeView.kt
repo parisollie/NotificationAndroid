@@ -24,9 +24,10 @@ import com.pjff.notificationproject.components.TopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+//Paso 1.9, le ponemos el NavController
 fun HomeView(navController: NavController) {
-    //Vid 292
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    //Lamamos al menuLateral
     MenuLateral(navController, drawerState) {
         ContentHomeView(drawerState)
     }
@@ -34,7 +35,7 @@ fun HomeView(navController: NavController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-//Vid 292
+//Paso 1.6
 fun ContentHomeView(drawerState: DrawerState) {
     Scaffold(
         topBar = {
@@ -45,18 +46,21 @@ fun ContentHomeView(drawerState: DrawerState) {
     }
 }
 
+//Paso 1.7 , para las notificaciones
 @Composable
 fun NotificationsView(paddingValues: PaddingValues) {
-    //Vid 297
+    //V-297, paso 3.1
     val context = LocalContext.current
     val notificationService = NotificationService(context)
     Column(
+        //Paso 1.8
         modifier = Modifier
             .padding(paddingValues)
             .fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        //Paso 3.2
         Text(text = "Notifications")
         Button(onClick = { notificationService.showBasicNotification() }) {
             Text(text = "Basic Notification")
@@ -74,7 +78,7 @@ fun NotificationsView(paddingValues: PaddingValues) {
             Text(text = "Image Notification")
         }
 
-        //Vid 298
+        //Paso 3.4
         Button(onClick = { NotificationWorker.releaseNotification(context) }) {
             Text(text = "Background Notification")
         }

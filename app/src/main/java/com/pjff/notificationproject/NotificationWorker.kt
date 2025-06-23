@@ -12,7 +12,7 @@ import androidx.work.WorkerParameters
 import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
-//Vid 298
+//V-298,Paso 3.3
 class NotificationWorker(context: Context, params: WorkerParameters): Worker(context, params) {
 
     override fun doWork(): Result {
@@ -38,9 +38,10 @@ class NotificationWorker(context: Context, params: WorkerParameters): Worker(con
     companion object{
         fun releaseNotification(context: Context){
             val constraints = Constraints.Builder()
+                // Configuración de que si la notificación requiere internet
                 .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
                 .setRequiresCharging(false)
-                //si la bateria esta baja
+                // Si la bateria esta baja
                 .setRequiresBatteryNotLow(false)
                 .build()
 
@@ -51,6 +52,5 @@ class NotificationWorker(context: Context, params: WorkerParameters): Worker(con
             WorkManager.getInstance(context).enqueue(notificationWork)
         }
     }
-
 
 }
